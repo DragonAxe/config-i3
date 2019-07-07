@@ -1,0 +1,10 @@
+**/*
+
+!.gitignore
+!config
+!passmenu-fixed.sh
+!xidlelock-run.sh
+!backgrounds
+!backgrounds/.gitignore
+!README.md
+!Screenshot.jpg
