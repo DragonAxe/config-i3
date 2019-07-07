@@ -1,0 +1,407 @@
+################################################################################
+##                       DragonAxe i3-gaps config file                        ##
+################################################################################
+
+
+# i3-gaps is used along with:
+#     - Polybar (i3status/i3bar replacement)
+#     - Rofi (Dmenu replacement)
+#
+# Other dependencies:
+#     - xfce4-terminal (terminal emulator)
+#     - thunar (file manager)
+#     - xdotool (keyboard/mouse automation)(used in passmenu-fixed.sh)
+#     - xidlelock (xautolock replacement)
+#
+# Companion scripts:
+#     - passmenu-fixed.sh
+#     - xidlelock-run.sh
+#     - ~/.config/polybar/launch.sh
+
+
+################################################################################
+    ## Special key aliases ##
+    #########################
+
+
+set $mod Mod4 # Mod4 = windows key
+set $alt Mod1
+set $ctl Control
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+
+################################################################################
+    ## Font ##
+    ##########
+
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose a FreeType font, such as:
+# font pango:DejaVu Sans Mono 10
+font pango:DejaVu Sans Mono, Awesome 14
+
+
+################################################################################
+    ## Movement & navigation keybinds ##
+    ####################################
+
+
+# fucus characteristics of the mouse
+focus_follows_mouse yes
+force_focus_wrapping no # Something about how focus is handed with parent/child floating windows
+
+# kill focused window
+bindsym $mod+q kill
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+g split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+Shift+a focus child
+
+# Scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad
+
+
+################################################################################
+    ## Workspaces ##
+    ################
+
+
+# switch to workspace
+bindsym $mod+1 workspace 1:Ϣ
+bindsym $mod+2 workspace 2:⋈
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6:λ
+bindsym $mod+7 workspace 7:µ
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $ctl+$alt+Left workspace prev
+bindsym $ctl+$alt+Right workspace next
+
+bindsym $mod+n move workspace to output left
+bindsym $mod+m move workspace to output right
+bindsym $mod+u move workspace to output up
+bindsym $mod+j move workspace to output down
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1:Ϣ
+bindsym $mod+Shift+2 move container to workspace 2:⋈
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6:λ
+bindsym $mod+Shift+7 move container to workspace 7:µ
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# Move workspace to monitor
+bindsym $mod+$alt+Left exec i3-msg move workspace to output left
+bindsym $mod+$alt+Right exec i3-msg move workspace to output right
+
+
+################################################################################
+    ## Reload, restart, & exit ##
+    #############################
+
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-msg exit"
+
+
+################################################################################
+    ## Resize window mode ##
+    ########################
+
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+################################################################################
+    ## Old i3bar settings ##
+    ########################
+
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+# bar {
+#         status_command i3status -c ~/.config/i3/i3status.conf
+#         # status_command scala -cp ~/Dropbox/Programming/Scala/i3statusEx/target/scala-2.11/classes I3StatusEx
+#         # status_command ~/Dropbox/Programming/C/dragonstatus/dragonstatus
+#         font pango:DejaVu Sans Mono, Awesome 10
+#         position bottom
+#         height 25
+#         colors {
+#                 background #000000
+#                 statusline #ffffff ##00A5FF #that neon blue
+#                 separator #ffffff
+#
+#                 # class            border  backgr. text
+#                 focused_workspace  #00c000 #00c000 #000000
+#                 active_workspace   #0000ff #70c000 #000000
+#                 inactive_workspace #222222 #222222 #999999
+#                 urgent_workspace   #ff0000 #ff0000 #ffffff
+#
+#                 #focused_workspace  #4c7899 #285577 #ffffff
+#                 #active_workspace   #333333 #5f676a #ffffff
+#                 #inactive_workspace #333333 #222222 #888888
+#                 #urgent_workspace   #2f343a #900000 #ffffff
+#         }
+# }
+
+
+################################################################################
+    ## Color theme and layout ##
+    ############################
+
+
+# i3-gaps config
+gaps inner 0
+gaps outer 0
+
+# window boarder
+new_window pixel 4
+
+# new workspace default layout
+workspace_layout tabbed
+
+## Colors: Vibrent Green Theme
+## class                 border  backgr. text    indicator
+##client.focused         #4c7899 #285577 #ffffff #2e9ef4
+#client.focused          #00c000 #00c000 #000000 #2e9ef4
+#client.focused_inactive #5f676a #5f676a #ffffff #484e50
+##client.unfocused       #333333 #222222 #888888 #292d2e
+#client.unfocused        #222222 #222222 #bbddbb #292d2e
+#client.urgent           #900000 #900000 #000000 #900000
+#client.placeholder      #000000 #0c0c0c #ffffff #000000
+#client.background       #ffffff
+
+# Colors: Pale Green Theme
+# class                 border  backgr. text    indicator
+#client.focused         #4c7899 #285577 #ffffff #2e9ef4
+client.focused          #88c088 #88c088 #000000 #2e9ef4
+client.focused_inactive #5f676a #5f676a #ffffff #484e50
+#client.unfocused       #333333 #222222 #888888 #292d2e
+client.unfocused        #00aa00 #222222 #bbddbb #292d2e
+client.urgent           #900000 #900000 #000000 #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000
+client.background       #ffffff
+
+
+################################################################################
+    ## Program launch hotkeys ##
+    ############################
+
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec rofi -show combi -show-icons
+
+# password menu
+bindsym $mod+p exec ~/.config/i3/passmenu-fixed.sh -i
+
+# start a terminal
+bindsym $mod+Return exec xfce4-terminal
+
+# start thunar
+bindsym $mod+Shift+Return exec thunar
+
+# Screenshots
+#bindsym $ctl+$alt+e exec shutter --section -d 1 --min_at_startup
+bindsym $ctl+$alt+e exec gnome-screenshot
+
+
+################################################################################
+    ## Startup programs ##
+    ######################
+
+
+# polybar
+exec_always --no-startup-id /home/dragonaxe/.config/polybar/launch.sh
+
+# Lock screen
+exec --no-startup-id gnome-screensaver
+
+# Efficient autolock written in Rust
+exec --no-startup-id ~/.config/i3/xidlelock-run.sh
+
+# xautolock fallback from xidlelock
+#exec --no-startup-id if test "$(hostname)" != "Denizar-Station"; then xautolock \
+#                       -time 10 \
+#                       -locker "gnome-screensaver-command -l" \
+#                       -notify 30 \
+#                       -notifier "notify-send -u critical -t 10000 -- '# Screen will lock in 30 seconds! #    # Screen will lock in 30 seconds! #    # Screen will lock in 30 seconds! #'"; \
+#                     fi
+
+# Display power management signaling (needed for old laptop?)
+exec --no-startup-id xset dpms 600
+
+# Network manager system tray icon
+exec --no-startup-id nm-applet
+
+# Redshift system tray icon
+exec --no-startup-id sleep 10; redshift-gtk
+
+# Bluetooth system tray icon
+exec --no-startup-id blueman-applet
+
+# Web browsing
+exec --no-startup-id sleep 15s; firefox
+
+# File sharing
+exec --no-startup-id sleep 3m; dropbox
+
+# Background image changer
+exec --no-startup-id while true; do feh --recursive --randomize --bg-fill "/home/dragonaxe/.config/i3/backgrounds/"; sleep $((60*10)); done
+
+# Compositor
+#exec --no-startup-id compton -b --config "/home/dragonaxe/.config/i3/compton/comption.conf"
+
+# dunst - notifications daemon
+exec --no-startup-id dunst
+
+# Turn off graphics card light (nvidia desktop gpu)
+exec --no-startup-id nvidia-settings --assign GPULogoBrightness=0
+
+
+################################################################################
+    ## Control hotkeys ##
+    #####################
+
+
+# Lock Screen
+#bindsym $ctl+$alt+l exec xautolock -locknow
+bindsym $ctl+$alt+l exec gnome-screensaver-command -l && sh -c "sleep 1.5 && xset dpms force off"
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+# &&  gst-launch-1.0 filesrc location=.config/i3/pop.wav ! wavparse ! audioconvert ! pulsesink &
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+# &&  gst-launch-1.0 filesrc location=.config/i3/pop.wav ! wavparse ! audioconvert ! pulsesink &
+bindsym XF86AudioMute exec --no-startup-id        pactl set-sink-mute @DEFAULT_SINK@ toggle
+# &&  gst-launch-1.0 filesrc location=.config/i3/pop.wav ! wavparse ! audioconvert ! pulsesink &
+
+# Sreen brightness controls
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 10 -steps 1
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 10 -steps 1
+#bindsym $ctl+F2 exec xbacklight -set 5 -steps 1
+bindsym XF86MonBrightnessUp exec sh -c "expr `cat /sys/class/backlight/intel_backlight/brightness` + 40 | sudo tee /sys/class/backlight/intel_backlight/brightness"
+bindsym XF86MonBrightnessDown exec sh -c "expr `cat /sys/class/backlight/intel_backlight/brightness` - 40 | sudo tee /sys/class/backlight/intel_backlight/brightness"
+bindsym $ctl+F3 exec sh -c "echo 1 | sudo tee /sys/class/backlight/intel_backlight/brightness"
+bindsym $ctl+F2 exec sh -c "echo 20 | sudo tee /sys/class/backlight/intel_backlight/brightness"
+bindsym $ctl+F1 exec sh -c "sleep 2 && xset dpms force off"
+
+# Media player controls
+bindsym XF86AudioPlay exec qdbus org.mpris.clementine /Player Pause
+#bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec qdbus org.mpris.clementine /Player Next
+bindsym XF86AudioPrev exec qdbus org.mpris.clementine /Player Prev
+# bluetooth play/pause button
+bindsym XF86AudioPlay exec xdotool key space
+
+# Other Xorg keys:
+# XF86Display monitor swap button
+# XF86Tools gear/settings button
+# XF86Favorites star/favorites button
+# XF86WakeUp tapping function key once
+# XF86AudioPause bluetooth-pause
+
+
+################################################################################
+    ## Other ##
+    ###########
+
+
+# Float specific windows
+for_window [class="Gnome-calculator"] floating enable, move position 1860 px 740 px
+
+# Execute on i3 reload
+# exec_always
+
+# Startup layout
+# exec --no-startup-id "i3-msg 'workspace 2:Mail; append_layout ~/.config/i3/layout-ws2.json; workspace 1:Web; append_layout ~/.config/i3/layout-ws1.json'"
+# workspace 4:Math; append_layout ~/.i3/layout-ws4.json; workspace 3; append_layout ~/.i3/layout-ws3.json;
+
+
+################################################################################
+    ## mod + shift + c to reload config ##
+    ######################################
