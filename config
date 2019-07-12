@@ -12,6 +12,7 @@
 #     - thunar (file manager)
 #     - xdotool (keyboard/mouse automation)(used in passmenu-fixed.sh)
 #     - xidlelock (xautolock replacement)
+#     - feh (background wallpaper)
 #
 # Companion scripts:
 #     - passmenu-fixed.sh
@@ -296,7 +297,7 @@ bindsym $ctl+$alt+e exec gnome-screenshot
 
 
 # polybar
-exec_always --no-startup-id /home/dragonaxe/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Lock screen
 exec --no-startup-id gnome-screensaver
@@ -331,7 +332,7 @@ exec --no-startup-id sleep 15s; firefox
 exec --no-startup-id sleep 3m; dropbox
 
 # Background image changer
-exec --no-startup-id while true; do feh --recursive --randomize --bg-fill "/home/dragonaxe/.config/i3/backgrounds/"; sleep $((60*10)); done
+exec --no-startup-id while true; do feh --recursive --randomize --bg-fill "$(find "$HOME/.config/i3/backgrounds/" -iregex '.*\.\(jpg\|png|jpeg\)')"; sleep $((60*10)); done
 
 # Compositor
 #exec --no-startup-id compton -b --config "/home/dragonaxe/.config/i3/compton/comption.conf"
@@ -376,7 +377,7 @@ bindsym XF86AudioPlay exec qdbus org.mpris.clementine /Player Pause
 bindsym XF86AudioNext exec qdbus org.mpris.clementine /Player Next
 bindsym XF86AudioPrev exec qdbus org.mpris.clementine /Player Prev
 # bluetooth play/pause button
-bindsym XF86AudioPlay exec xdotool key space
+#bindsym XF86AudioPlay exec xdotool key space
 
 # Other Xorg keys:
 # XF86Display monitor swap button
