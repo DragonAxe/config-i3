@@ -25,7 +25,8 @@
     #########################
 
 
-set $mod Mod4 # Mod4 = windows key
+# Mod4 = windows key
+set $mod Mod4
 set $alt Mod1
 set $ctl Control
 # Use Mouse+$mod to drag floating windows to their wanted position
