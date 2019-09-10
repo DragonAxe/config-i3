@@ -13,6 +13,7 @@
 #     - xdotool (keyboard/mouse automation)(used in passmenu-fixed.sh)
 #     - xidlelock (xautolock replacement)
 #     - feh (background wallpaper)
+#     - parcellite (clipboard persistence after closed apps)
 #
 # Companion scripts:
 #     - passmenu-fixed.sh
@@ -343,6 +344,9 @@ exec --no-startup-id dunst
 
 # Turn off graphics card light (nvidia desktop gpu)
 exec --no-startup-id nvidia-settings --assign GPULogoBrightness=0
+
+# Clipboard manager
+exec --no-startup-id parcellite
 
 
 ################################################################################
