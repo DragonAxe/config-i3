@@ -334,7 +334,7 @@ exec --no-startup-id sleep 15s; firefox
 exec --no-startup-id sleep 3m; dropbox
 
 # Background image changer
-exec --no-startup-id while true; do feh --recursive --randomize --bg-fill "$(find "$HOME/.config/i3/backgrounds/" -iregex '.*\.\(jpg\|png|jpeg\)')"; sleep $((60*10)); done
+exec --no-startup-id find "$HOME/.config/i3/backgrounds/" -iregex '.*\.\(jpg\|png|jpeg\)' -printf '"%p"\n' | xargs feh --recursive --randomize --bg-fill
 
 # Compositor
 #exec --no-startup-id compton -b --config "/home/dragonaxe/.config/i3/compton/comption.conf"
