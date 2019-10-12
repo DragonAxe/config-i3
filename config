@@ -14,6 +14,7 @@
 #     - xidlelock (xautolock replacement)
 #     - feh (background wallpaper)
 #     - parcellite (clipboard persistence after closed apps)
+#     - xfce4-notifyd (notification daemon) (previously dunst)
 #
 # Companion scripts:
 #     - passmenu-fixed.sh
@@ -339,8 +340,9 @@ exec --no-startup-id find "$HOME/.config/i3/backgrounds/" -iregex '.*\.\(jpg\|pn
 # Compositor
 #exec --no-startup-id compton -b --config "/home/dragonaxe/.config/i3/compton/comption.conf"
 
-# dunst - notifications daemon
-exec --no-startup-id dunst
+# notifications daemon
+#exec --no-startup-id dunst
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
 
 # Turn off graphics card light (nvidia desktop gpu)
 exec --no-startup-id nvidia-settings --assign GPULogoBrightness=0
