@@ -287,14 +287,25 @@ workspace_layout tabbed
 #client.placeholder      #000000 #0c0c0c #ffffff #000000
 #client.background       #ffffff
 
-# Colors: Pale Green Theme
+## Colors: Pale Green Theme
+## class                 border  backgr. text    indicator
+##client.focused         #4c7899 #285577 #ffffff #2e9ef4
+#client.focused          #88c088 #88c088 #000000 #2e9ef4
+#client.focused_inactive #5f676a #5f676a #ffffff #484e50
+##client.unfocused       #333333 #222222 #888888 #292d2e
+#client.unfocused        #00aa00 #222222 #bbddbb #292d2e
+#client.urgent           #900000 #900000 #000000 #900000
+#client.placeholder      #000000 #0c0c0c #ffffff #000000
+#client.background       #ffffff
+
+# Colors: Vibrent Red Theme
 # class                 border  backgr. text    indicator
 #client.focused         #4c7899 #285577 #ffffff #2e9ef4
-client.focused          #88c088 #88c088 #000000 #2e9ef4
-client.focused_inactive #5f676a #5f676a #ffffff #484e50
+client.focused          #c02222 #c02222 #000000 #9e2ef4
+client.focused_inactive #675f6a #675f6a #ffffff #4e4850
 #client.unfocused       #333333 #222222 #888888 #292d2e
-client.unfocused        #00aa00 #222222 #bbddbb #292d2e
-client.urgent           #900000 #900000 #000000 #900000
+client.unfocused        #aa0000 #222222 #ddbbbb #2d292e
+client.urgent           #009000 #009000 #000000 #009000
 client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #ffffff
 
