@@ -344,19 +344,19 @@ exec --no-startup-id ~/.config/i3/xidlelock-run.sh
 #                     fi
 
 # Display power management signaling (needed for old laptop?)
-exec --no-startup-id xset dpms 600
+#exec --no-startup-id xset dpms 600
 
 # Network manager system tray icon
 exec --no-startup-id nm-applet
 
 # Redshift system tray icon
-exec --no-startup-id sleep 10; redshift-gtk
+exec --no-startup-id redshift-gtk
 
 # Bluetooth system tray icon
 exec --no-startup-id blueman-applet
 
 # Web browsing
-exec --no-startup-id sleep 15s; firefox
+#exec --no-startup-id sleep 15s; firefox
 
 # File sharing
 exec --no-startup-id sleep 3m; dropbox
