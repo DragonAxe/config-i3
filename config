@@ -262,6 +262,9 @@ bindsym $mod+r mode "resize"
 gaps inner 0
 gaps outer 0
 
+# Don't add border on "maximised" windows
+smart_borders on
+
 # window boarder
 new_window pixel 4
 
