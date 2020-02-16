@@ -387,12 +387,15 @@ exec --no-startup-id parcellite
 bindsym $ctl+$alt+l exec ~/.config/i3/lock-screen-command.sh && sh -c "sleep 1.5 && xset dpms force off"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 # &&  gst-launch-1.0 filesrc location=.config/i3/pop.wav ! wavparse ! audioconvert ! pulsesink &
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 # &&  gst-launch-1.0 filesrc location=.config/i3/pop.wav ! wavparse ! audioconvert ! pulsesink &
-bindsym XF86AudioMute exec --no-startup-id        pactl set-sink-mute @DEFAULT_SINK@ toggle
+#bindsym XF86AudioMute exec --no-startup-id        pactl set-sink-mute @DEFAULT_SINK@ toggle
 # &&  gst-launch-1.0 filesrc location=.config/i3/pop.wav ! wavparse ! audioconvert ! pulsesink &
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer -q set Master togglemute
 
 # Sreen brightness controls
 #bindsym XF86MonBrightnessUp exec xbacklight -inc 10 -steps 1
