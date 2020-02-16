@@ -23,6 +23,25 @@
 
 
 ################################################################################
+    ## Sections ##
+    ##############
+
+# Special key aliases
+# Font
+# Movement & navigation keybinds
+# Workspaces
+# Reload, restart, & exit
+# Resize window mode
+# Old i3bar settings
+# Color theme and layout
+# Program launch hotkeys
+# Startup programs
+# Control hotkeys
+# Other
+# mod + shift + c to reload config
+
+
+################################################################################
     ## Special key aliases ##
     #########################
 
