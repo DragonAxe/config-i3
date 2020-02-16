@@ -141,6 +141,10 @@ bindsym $mod+Shift+minus move scratchpad
 #  smart|urgent|focus|none
 focus_on_window_activation focus
 
+# Allow toggling between workspaces by hitting the same hotkey
+#  Useful for notifications
+workspace_auto_back_and_forth yes
+
 # switch to workspace
 bindsym $mod+1 workspace 1:Ϣ
 bindsym $mod+2 workspace 2:⋈
