@@ -136,6 +136,10 @@ bindsym $mod+Shift+minus move scratchpad
     ################
 
 
+# focus stealing behavior
+#  smart|urgent|focus|none
+focus_on_window_activation focus
+
 # switch to workspace
 bindsym $mod+1 workspace 1:Ϣ
 bindsym $mod+2 workspace 2:⋈
