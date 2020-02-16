@@ -300,10 +300,10 @@ client.background       #ffffff
 
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show combi -show-icons
+bindsym $mod+d exec --no-startup-id rofi -show combi -show-icons
 
 # password menu
-bindsym $mod+p exec ~/.config/i3/passmenu-fixed.sh -i
+bindsym $mod+p exec --no-startup-id ~/.config/i3/passmenu-fixed.sh -i
 
 # start a terminal
 bindsym $mod+Return exec xfce4-terminal
