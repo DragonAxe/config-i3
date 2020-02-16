@@ -19,7 +19,7 @@
     'cat backup-backlight.txt | sudo tee /sys/class/backlight/intel_backlight/brightness' \
   `# Undim & lock after 9 more minutes` \
   --timer primary 60 \
-    'cat backup-backlight.txt | sudo tee /sys/class/backlight/intel_backlight/brightness; gnome-screensaver-command -l' \
+    'cat backup-backlight.txt | sudo tee /sys/class/backlight/intel_backlight/brightness; ~/.config/i3/lock-screen-command.sh' \
     '' \
   `# Finally, suspend an half hour after it locks` \
   --timer normal 1800 \

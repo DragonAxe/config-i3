@@ -20,6 +20,7 @@
 #     - passmenu-fixed.sh
 #     - xidlelock-run.sh
 #     - ~/.config/polybar/launch.sh
+#     - lock-screen-command.sh
 
 
 ################################################################################
@@ -383,8 +384,7 @@ exec --no-startup-id parcellite
 
 
 # Lock Screen
-#bindsym $ctl+$alt+l exec xautolock -locknow
-bindsym $ctl+$alt+l exec gnome-screensaver-command -l && sh -c "sleep 1.5 && xset dpms force off"
+bindsym $ctl+$alt+l exec ~/.config/i3/lock-screen-command.sh && sh -c "sleep 1.5 && xset dpms force off"
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
